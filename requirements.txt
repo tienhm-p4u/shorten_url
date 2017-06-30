@@ -1,0 +1,5 @@
+flask
+hashids
+Flask-SQLAlchemy
+alembic
+psycopg2
