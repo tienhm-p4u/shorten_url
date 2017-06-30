@@ -1,3 +1,5 @@
+"""Endpoint to handle URL shorten request"""
+
 from hashids import Hashids
 from flask import Blueprint, request, jsonify, current_app
 
@@ -9,7 +11,8 @@ api = Blueprint(__name__, "url")
 
 
 @api.route("/url", methods=["POST"])
-def encode_url():
+def shorten():
+    """Shorten a pure URL"""
     url = request.values.get("url")
 
     if not is_valid_url(url):
@@ -29,7 +32,8 @@ def encode_url():
 
 
 @api.route("/url/<hashid>", methods=["GET"])
-def decode_url(hashid):
+def decode(hashid):
+    """Translate from shorten URL to pure URL"""
     item_id = Hashids().decode(hashid)
     if not item_id:
         raise error.NotFound(hashid)
