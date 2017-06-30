@@ -1,3 +1,7 @@
+# Description:
+Flask service to shorten URL using [Hashids](https://github.com/ivanakimov/hashids.js)
+
+
 ### I created a Postgres in AWS for testing, so you just want to run service and test.
 
 Run service
